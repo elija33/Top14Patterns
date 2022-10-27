@@ -16,3 +16,8 @@ Output: {1,9}  ===> [1, 9].
 The idea to solve this problem is, first sort the intervals according to the starting time. 
 Once we have the sorted intervals, we can combine all intervals in a linear traversal. 
 The idea is, in sorted array of intervals, if interval[i] doesn’t overlap with interval[i-1], then interval[i+1] cannot overlap with interval[i-1] because starting time of interval[i+1] must be greater than or equal to interval[i].
+
+
+                                Some common problems with the merge-intervals pattern:
+Intervals intersection
+Maximum CPU load

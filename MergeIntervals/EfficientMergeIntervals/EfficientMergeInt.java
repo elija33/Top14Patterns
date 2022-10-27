@@ -19,25 +19,35 @@ class Interval {
 public class EfficientMergeInt {
 
     public static void meregeIntervals(Interval number[]) {
+        // Sort Intervals in increasing order of
+        // start time
         Arrays.sort(number, new Comparator<Interval>() {
-            public int compare(Interval word, Interval word2) {
-                return word.start = word2.start;
+            public int compare(Interval i1, Interval i2) {
+                return i1.start - i2.start;
             }
         });
 
-        int index = 0;
+        int index = 0; // Stores index of last element
+        // in output array (modified arr[])
 
+        // Traverse all input Intervals
         for (int i = 1; i < number.length; i++) {
+            // If this is not first Interval and overlaps
+            // with the previous one
             if (number[index].end >= number[i].start) {
+                // Merge previous and current Intervals
                 number[index].end = Math.max(number[index].end, number[i].end);
             } else {
                 index++;
                 number[index] = number[i];
             }
         }
-        System.out.println("The Merged Intervals are: ");
+
+        // Now arr[0..index-1] stores the merged Intervals
+        System.out.print("The Merged Intervals are: ");
         for (int i = 0; i <= index; i++) {
-            System.out.println("[" + number[i].start + "," + number[i].end + "]");
+            System.out.print("[" + number[i].start + ","
+                    + number[i].end + "]");
         }
     }
 
