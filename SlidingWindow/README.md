@@ -21,3 +21,19 @@ We compute the sum of first k elements out of n terms using a linear loop and st
 Then we will graze linearly over the array till it reaches the end and simultaneously keep track of maximum sum.
 To get the current sum of block of k elements just subtract the first element from the previous block and add the last element of the current block.
 
+                                    Some Common problems with the sliding window problem:
+Maximum sum subarray of size “K”
+Longest substring with “K” distinct characters
+String anagrams 
+Find the longest substring of a given string containing k distinct characters
+Find all substrings of a string that are permutation of a given string
+Longest substring of given string containing distinct characters
+Find maximum length sequence of continuous ones (Using Sliding Window)
+Find the maximum sequence of continuous 1’s that can be formed by replacing at-most k zeroes by ones
+Find minimum sum subarray of given size k
+Find subarray having given sum in given array of integers
+Find the length of the smallest subarray whose sum of elements is greater than the given number
+Find the count of distinct elements in every sub-array of size k
+Print all sub-arrays of an array having distinct elements
+Count the distinct absolute values in the sorted array
+Find duplicates within given range k in an array                     
