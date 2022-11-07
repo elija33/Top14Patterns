@@ -3,9 +3,6 @@ package MergeIntervals.EfficientMergeIntervals;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import javax.swing.plaf.synth.SynthSpinnerUI;
-import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
-
 class Interval {
     int start;
     int end;
