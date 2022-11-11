@@ -1,0 +1,86 @@
+/*
+Suppose we have a list of parent-child pairs that represent a family tree:
+
+    1   2    4
+     \ /   / | \
+      3   5  8  9
+       \ / \     \
+        6   7    11
+
+parent_child_pairs = [
+    (1, 3), (2, 3), (3, 6), (5, 6),
+    (5, 7), (4, 5), (4, 8), (4, 9), (9, 11)
+]
+
+For example, 1 is a parent of 3, and 4 is a parent of 5, 8 and 9.
+
+Write a function that takes parent_child_pairs as input, as well as two people, A and B, and returns True if A is a parent of B. Otherwise the function returns False
+
+Sample input and output:
+
+is_parent_of(parent_child_pairs, 1, 3) --> True
+is_parent_of(parent_child_pairs, 3, 1) --> False # parent is always first in pair
+is_parent_of(parent_child_pairs, 1, 9) --> False
+is_parent_of(parent_child_pairs, 1, 6) --> False # not transitive, not grandparents
+
+Complexity Analysis variables:
+
+n: the number of pairs in the input
+
+
+Find all of the distinct individuals given only the list of parent-child relationships
+
+Write a function that takes the parent-child relationships as input, and returns a list of every individual.
+
+Sample input and output:
+    1   2    4
+     \ /   / | \
+      3   5  8  9
+       \ / \     \
+        6   7    11
+
+parent_child_pairs = [
+    (1, 3), (2, 3), (3, 6), (5, 6),
+    (5, 7), (4, 5), (4, 8), (4, 9), (9, 11)
+]
+
+# Returns
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 11]
+
+Complexity Analysis variables:
+
+n: the number of pairs in the input
+*/
+import java.io.*;
+import java.util.*;
+// Loop thought the array.
+// create a vauble call B
+// create a va call A 
+// compair B to A 
+
+public class Solution {
+  public static boolean compair(int number[][], int A, int B){
+    for(int i = 0; i < number.length-1; i++){
+      if(number[i][0] == A && number[i][1] == B){
+        return true;
+      }
+    }
+    return false;
+  }
+  public static void main(String[] argv) {
+    int[][] parentChildPairs = new int[][] {
+      {1, 3}, {2, 3}, {3, 6}, {5, 6}, {5, 7},
+      {4, 5}, {4, 8}, {4, 9}, {9, 11} 
+    };
+    // 4 is parent of 9
+    /*
+    5 is the parent of 7
+    
+    */
+    System.out.println(compair(parentChildPairs, 1, 3));
+    System.out.println(compair(parentChildPairs, 3, 1));
+    System.out.println(compair(parentChildPairs, 1, 9));
+    System.out.println(compair(parentChildPairs, 1, 6));
+    
+  }
+}
