@@ -1,28 +1,36 @@
 package TowPointers;
 
+import java.util.Arrays;
+
 public class TowPointers {
     public static int[] towpointer(int number[], int givenumber) {
+
+        // Sort Up all the Element in the Array
+        Arrays.sort(number);
+
         // the beginning of the array
-        int start = 0;
-        // The end of the array
-        int end = number.length;
+        int left = 0;
+        // The right of the array
+        int right = number.length - 1;
 
-        while (start < end) {
+        while (left < right) {
 
-            // cheeck if the start array and the end array add up to our given number
-            if (number[start] + number[end] == givenumber)
+            // cheeck if the start array and the right array add up to our given number
+            if (number[left] + number[right] == givenumber) {
+
                 // retrun true if they add up to our givennumber
-                return new int[] { number[start], number[end] };
+                return new int[] { number[left], number[right] };
+            }
 
-            // if they do not add up to our given number, we start decrements the end to
+            // if they do not add up to our given number, we start decrements the right to
             // find out if they add up
-            else if (number[start] + number[end] < givenumber)
-                start++;
+            else if (number[left] + number[right] < givenumber)
+                left++;
             else
-                end--;
+                right--;
 
         }
-        return new int[] {};
+        return new int[0];
     }
 
     public static void main(String[] args) {
