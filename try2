@@ -1,0 +1,56 @@
+import java.io.*;
+import java.util.*;
+/*
+Let's make this game more interesting by adding a monster to the board, denoted by the letter 'M'
+
+The board is still a list of characters, with exactly one player, 'P', and one monster, 'M'.
+
+Write a function that takes a board, and returns the number of spaces (represented by dashes '-' on the board) between the player and the monster.
+
+Sample input and output:
+board1 = ['-', 'P', '-', '-', 'M', '-'] => 2 // p is index 1 and M is index 4
+board2 = ['-', 'M', '-', '-', 'P', '-'] => 2 // 
+board3 = ['M', '-', '-', '-', 'P'] => 3
+board4 = ['P', 'M'] => 0
+
+For this question, you cannot call built-in search functions like index() or indexOf().
+
+Complexity Analysis variable:
+n = number of spaces in the board
+*/
+public class Solution {
+  public static int distance(char board[]){
+    int min = Integer.Max_VALUE;
+    for(int i = 0; i < board.length; i++){
+      for(int j = 0; i < board.length; j++)
+      if((board[i] == 'P' && board[j] == 'M' || 'M' == board[i] && 'P' == board[j])
+            && min > Math.abs(i - j)) min = Math.abs(i - j);
+      {
+        System.out.println(board[i]);
+        return i;
+      }
+    }
+    return 1;
+  }
+  /*public static int playerPosition(char board[]){
+    for(int i = 0; i < board.length; i++){ 
+      if(board[i] == 'P'){ // ['-', ]
+        return i;
+      }
+    }
+    return 1;
+  }*/
+  public static void main(String[] argv) {
+    char[] board1 = {'-', 'P', '-', '-', 'M', '-'};
+    System.out.println(distance(board1)); // returns 2
+
+    char[] board2 = {'-', 'M', '-', '-', 'P', '-'};
+    System.out.println(distance(board2)); // returns 2
+
+    char[] board3 = {'M', '-', '-', '-', 'P'};
+    System.out.println(distance(board3)); // returns 3
+
+    char[] board4 = {'P', 'M'};
+    System.out.println(distance(board4)); // returns 0
+  }
+}
